@@ -15,6 +15,7 @@ def red(text: str) -> str:
     # Wrap text in ANSI codes for red color
     return f"\033[91m{text}\033[0m"
 
+# Global variables
 equalSign = "="
 emptySpace = "  "
 x = 3
