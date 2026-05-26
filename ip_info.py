@@ -1,5 +1,7 @@
 # IP Info API Tool
 import requests
+import time
+import os
 
 def green(text: str) -> str: 
     # Wrap text in ANSI codes for green color
@@ -15,12 +17,45 @@ def red(text: str) -> str:
 
 equalSign = "="
 emptySpace = "  "
+x = 3
+y = 0.5
 
-print(green(equalSign * 20))
-print(green(bold(emptySpace + "IP Info API Tool")))
-print(green(equalSign * 20))
-print(red("By: RavenTheBird789"))
-print(green(equalSign * 20))
+def trademark(ip_info_func):
+    def wrapper():
+        print(green(equalSign * 20))
+        print(green(bold(emptySpace + "IP Info API Tool")))
+        print(green(equalSign * 20))
+        print(red("By: RavenTheBird789"))
+        print(green(equalSign * 20))
+        ip_info_func()
+    return wrapper
+
+def user_request():
+    prompt = input(green("\nWould you like to use the tool again? (yes/no): "))
+    if prompt == "yes":
+        os.system('clear')
+        main()
+    elif prompt == "no":
+        os.system('clear')
+        print(green("Exiting"))
+        time.sleep(y)
+        os.system('clear')
+        print(green("Exiting."))
+        time.sleep(y)
+        os.system('clear')
+        print(green("Exiting.."))
+        time.sleep(y)
+        os.system('clear')
+        print(green("Exiting..."))
+        time.sleep(y)
+        os.system('clear')
+        os._exit(0);
+    else:
+        os.system('clear')
+        print(red("Invalid input"))
+        time.sleep(x)
+        os.system('clear')
+        user_request()
 
 def get_ip_info(ip_address):
     """Fetch information about the given IP address using an external API."""
@@ -29,10 +64,15 @@ def get_ip_info(ip_address):
     response = requests.get(url)
     
     if response.status_code == 200:
-        return green(response.json())
+        print(green(response.json()))
+        time.sleep(x)
+        user_request();
     else:
-        return red({"error": "Unable to fetch IP information."})
-    
+        print(red({"error": "Unable to fetch IP information."}))
+        time.sleep(y)
+        user_request();
+
+@trademark 
 def main():
     ip_address = input(green("Enter an IP address: "))
     info = get_ip_info(ip_address)
