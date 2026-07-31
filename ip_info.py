@@ -35,10 +35,10 @@ def trademark(ip_info_func):
 def exit_animation():
     """Handles the graceful exit animation cleanly."""
     for i in range(4):
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(green(f"Exiting{'.' * i}"))
         time.sleep(y)
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     os._exit(0)
 
 def get_ip_info(ip_address):
@@ -114,15 +114,15 @@ def main():
         while True:
             prompt = input(green("\nWould you like to use the tool again? (yes/no): ")).strip().lower()
             if prompt == "yes":
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 break # Breaks inner loop to look up a new IP
             elif prompt == "no":
                 exit_animation()
             else:
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 print(red("Invalid input"))
                 time.sleep(x)
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
 
 # Run the program
 if __name__ == "__main__":
