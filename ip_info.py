@@ -107,7 +107,7 @@ def get_ip_info(ip_address):
 @trademark
 def main():
     while True:
-        ip_address = input(green("Enter an IP address: "))
+        ip_address = input(green("Enter an IP address: ")).strip()
         get_ip_info(ip_address)
         
         # Loop prompt to avoid infinite recursion crashes
@@ -115,7 +115,7 @@ def main():
             prompt = input(green("\nWould you like to use the tool again? (yes/no): ")).strip().lower()
             if prompt == "yes":
                 os.system('cls' if os.name == 'nt' else 'clear')
-                break # Breaks inner loop to look up a new IP
+                main()
             elif prompt == "no":
                 exit_animation()
             else:
@@ -127,4 +127,3 @@ def main():
 # Run the program
 if __name__ == "__main__":
     main()
-
