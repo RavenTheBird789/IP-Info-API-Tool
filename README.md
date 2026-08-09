@@ -1,4 +1,4 @@
-# IP-Info-Swiper
+# IP-Info-Swiper 🔍
 Python script that uses the ipwho.is and google maps API's to pull information about a given IP address and return it to the user
 
 Prerequisites:
