@@ -5,7 +5,8 @@ Python script that uses the ipwho.is and google maps API's to pull information a
 
 Prerequisites:
 
-* Ensure the "requests" python module is installed in your env and/or in your linux environment to ensure the tool works as intended (This can generally be done via the command "pip install requests")
+* Ensure the latest version of python in installed in your terminal (python 3.x)
+* Ensure the "requests" python module is installed in your env and/or in your linux environment to ensure the tool works as intended (This can generally be done via the command "pip install requests" or in the case of this project, "pip install -r requirements.txt")
 
 Installation & Execution:
 
