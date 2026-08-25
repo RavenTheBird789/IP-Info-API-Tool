@@ -6,12 +6,13 @@ Python script that uses the ipwho.is and google maps API's to pull information a
 Prerequisites:
 
 * Ensure the latest version of python in installed in your terminal (python 3.x)
-* Ensure the "requests" python module is installed in your env and/or in your linux environment to ensure the tool works as intended (This can generally be done via the command "pip install requests" or in the case of this project, "pip install -r requirements.txt" once you're env is activated and you're in the "IP-Info-Swiper" directory)
+* Ensure you have an env environment for the required python libraries (If you don't, one can easily be created by executing the command "python -m venv env")
 
 Installation & Execution:
 
 * To install, simply type "git clone https://github.com/RavenTheBird789/IP-Info-Swiper" in your terminals command line
-
+* Run the command "cd IP-Info-Swiper" to change into the directory of this project
+* Run the command "pip install -r requirements.txt" once in the directory to install the required third-party python libraries
 * To run, simply type "python3 ip_info.py" in your terminals command line or use the alias command to create a shortcut to run the program in your terminal such as "alias ip="python3 ip_info.py""
 
 Additional Information:
