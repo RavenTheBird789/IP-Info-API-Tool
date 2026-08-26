@@ -18,9 +18,6 @@ equalSign = "="
 emptySpace = " "
 Wh = '\033[1;37m' # White color
 Gr = '\033[1;32m' # Green color
-x = 3
-y = 0.5
-z = 2
 
 def trademark(ip_info_func):
     def wrapper(*args, **kwargs):
@@ -37,7 +34,7 @@ def exit_animation():
     for i in range(4):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(green(f"Exiting{'.' * i}"))
-        time.sleep(y)
+        time.sleep(0.5)
     os.system('cls' if os.name == 'nt' else 'clear')
     os._exit(0)
 
@@ -47,7 +44,7 @@ def get_ip_info(ip_address):
         req_api = requests.get(f"http://ipwho.is/{ip_address}", timeout=10)
     except requests.exceptions.RequestException:
         print(red("\n[!] Network error. Unable to connect to API."))
-        time.sleep(x)
+        time.sleep(3)
         return
 
     if req_api.status_code == 200:
@@ -56,10 +53,10 @@ def get_ip_info(ip_address):
         # Check if the API itself flagged the IP lookup as a failure
         if not ip_data.get("success", False):
             print(red(f"\n[!] API Error: {ip_data.get('message', 'Unknown error')}"))
-            time.sleep(x)
+            time.sleep(3)
             return
 
-        time.sleep(z)
+        time.sleep(2)
         print(f"{Wh}\n IP target       :{Gr}", ip_address)
         print(f"{Wh} Type IP         :{Gr}", ip_data.get("type", "N/A"))
         print(f"{Wh} Country         :{Gr}", ip_data.get("country", "N/A"))
@@ -99,10 +96,10 @@ def get_ip_info(ip_address):
         print(f"{Wh} DST             :{Gr}", tz_data.get("is_dst", "N/A"))
         print(f"{Wh} Offset          :{Gr}", tz_data.get("offset", "N/A"))
         print(f"{Wh} UTC             :{Gr}", tz_data.get("utc", "N/A"))
-        time.sleep(z)
+        time.sleep(2)
     else:
         print(red("\n[!] Server error: Unable to fetch IP information."))
-        time.sleep(x)
+        time.sleep(3)
 
 @trademark
 def main():
@@ -121,7 +118,7 @@ def main():
             else:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print(red("Invalid input"))
-                time.sleep(x)
+                time.sleep(3)
                 os.system('cls' if os.name == 'nt' else 'clear')
 
 # Run the program
