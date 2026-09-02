@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # IP Info Swiper
 import requests
 import json
